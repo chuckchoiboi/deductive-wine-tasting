@@ -17,134 +17,148 @@
 }
 
 button:hover {
-    color: #6b7a8f !important;
+  color: #6b7a8f !important;
 }
 
 body {
-    background: #6b7a8f;
-    color: white;
-    font-family: Arvo-Regular;
-}
-#palate-row4 {
-    margin-bottom: 300px;
+  background: #6b7a8f;
+  color: white;
+  font-family: Arvo-Regular;
 }
 
+h3 {
+  font-size: 1rem;
+}
+
+/* #palate-row4 {
+  margin-bottom: 300px;
+} */
+
 .summary {
-    display: none;
+  display: none;
 }
 
 .summary span {
-    font-size: 50px;
+  font-size: 50px;
 }
 
 #summary td {
-    font-size: 25px;
+  font-size: 25px;
 }
 
-.sight .col, .nose .col, .palate .col {
-    border: 1px solid white;
-    border-radius: 10px;
-    margin: 10px;
+.instruction {
+  padding: 10px;
+  opacity: 0;
+  -webkit-transition: all 1s ease-in-out;
+  -moz-transition: all 1s ease-in-out;
+  -ms-transition: all 1s ease-in-out;
+  -o-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
 }
 
-.sight9, .palate8 {
-    border: none !important;
+.instruction-blurb {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 1px solid white;
+  border-radius: 10px;
+  padding: 10px;
 }
 
-.sight span, .nose span, .palate span {
-    padding: 10px;
-    font-size: 20px;
-    font-weight: bold;
+.sight .col,
+.nose .col,
+.palate .col {
+  border: 1px solid white;
+  border-radius: 10px;
+  margin: 10px;
+}
+
+.sight9,
+.palate8 {
+  border: none !important;
+}
+
+.sight span,
+.nose span,
+.palate span {
+  padding: 10px;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .container {
-    padding-bottom: 200px; 
+  padding-bottom: 200px;
 }
 
 .white-wine {
-    display: none;
+  display: none;
 }
 
-/* .summary-white-wine {
-    display: none;
-} */
-
 .wine-type {
-    height: 600px;
-    -webkit-filter: grayscale(0) blur(0);
-	filter: grayscale(0) blur(0);
-	-webkit-transition: .3s ease-in-out;
-    transition: .3s ease-in-out;
-    display: table;
+  height: 400px;
+  -webkit-filter: grayscale(0) blur(0);
+  filter: grayscale(0) blur(0);
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+  display: table;
 }
 
 .wine-type:hover {
-    -webkit-filter: grayscale(100%) blur(3px);
-	filter: grayscale(100%) blur(3px);
+  -webkit-filter: grayscale(100%) blur(3px);
+  filter: grayscale(100%) blur(3px);
 }
 
 .wine-type-name {
-    display: table-cell;
-    vertical-align: middle;
-    text-align: center;
-    font-size: 50px;
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  font-size: 50px;
 }
 
 .tasting-sense {
-    margin-top: 20px;
-    margin-bottom: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .badge {
-    font-size: 100% !important;
-    margin-left: 10px !important;
-    margin-right: 10px !important;
+  font-size: 100% !important;
+  margin-left: 10px !important;
+  margin-right: 10px !important;
 }
 
-.sight, .nose, .palate {
-    margin-top: 10px
+.sight,
+.nose,
+.palate {
+  margin-top: 10px;
 }
 
 .sight-detail {
-    margin-top: unset;
+  margin-top: unset;
 }
 
 #red-wine {
-    background: url('../image/red-wine2.jpg');
-    background-size: cover;
-    background-position: 50% 50%;
+  background: url('../image/red-wine2.jpg');
+  background-size: cover;
+  background-position: 50% 75%;
 }
 
 #white-wine {
-    background: url('../image/white-wine.jpg');
-    background-size: cover;
-    background-position: 70% 50%;
-}
-
-#other-wine {
-    background: url('../image/other-wine.jpg');
-    background-size: cover;
-    background-position: 5% 50%;
-}
-
-#other-wine-notice {
-    display: none;
-    font-size: 50px;
-    padding-top: 50px;
+  background: url('../image/white-wine.jpg');
+  background-size: cover;
+  background-position: 70% 60%;
 }
 
 #palate-summary {
-    margin-top: 50px;
+  margin-top: 50px;
 }
 
 .summary td {
-    /* padding-right: 50px; */
-    min-width: 240px;
+  /* padding-right: 50px; */
+  min-width: 240px;
 }
 
 #summary {
-    margin-bottom: 50px;
-    padding-top: 50px;
+  margin-bottom: 50px;
+  padding-top: 50px;
 }
 
 /* checkboxes and radio */
@@ -165,8 +179,28 @@ h1 {
   align-items: center;
   margin-bottom: 2em;
 }
-input[type="checkbox"],
-input[type="radio"] {
+
+.label-name {
+  font-size: 16px !important;
+  color: #6b7a8f;
+  background-color: white;
+  border: 1px solid white;
+  border-radius: 10px;
+  padding: 2px;
+  margin: 1px;
+  display: inline-block;
+}
+
+.summary tr {
+  border: 1px solid white;
+}
+
+.summary-wine-type {
+  border: none !important;
+}
+
+input[type='checkbox'],
+input[type='radio'] {
   position: absolute;
   opacity: 0;
   z-index: -1;
@@ -181,41 +215,42 @@ label {
 }
 
 label:before {
-    box-sizing: border-box;
-    content: " ";
-    position: absolute;
-    top: 0.3em;
-    left: 0;
-    display: block;
-    width: 1.4em;
-    height: 1.4em;
-    border: 2px solid white;
-    border-radius: .25em;
-    z-index: -1;
-  }
+  box-sizing: border-box;
+  content: ' ';
+  position: absolute;
+  top: 0.3em;
+  left: 0;
+  display: block;
+  width: 1.4em;
+  height: 1.4em;
+  border: 2px solid white;
+  border-radius: 0.25em;
+  z-index: -1;
+}
 
-input[type="radio"] + label::before {
+input[type='radio'] + label::before {
   border-radius: 1em;
 }
 /* Checked */
-input[type="checkbox"]:checked + label,
-input[type="radio"]:checked + label {
+input[type='checkbox']:checked + label,
+input[type='radio']:checked + label {
   padding-left: 1em;
   color: #6b7a8f;
   font-weight: bold;
 }
 
-input[type="checkbox"]:checked + label:before, input[type="radio"]:checked + label:before {
-    top: 0;
-    width: 100%;
-    height: 2em;
-    background: white;
-  }
+input[type='checkbox']:checked + label:before,
+input[type='radio']:checked + label:before {
+  top: 0;
+  width: 100%;
+  height: 2em;
+  background: white;
+}
 
 /* Transition */
 label,
 label::before {
-  -webkit-transition: .25s all ease;
-  -o-transition: .25s all ease;
-  transition: .25s all ease;
+  -webkit-transition: 0.25s all ease;
+  -o-transition: 0.25s all ease;
+  transition: 0.25s all ease;
 }

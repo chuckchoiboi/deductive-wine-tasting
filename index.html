@@ -1,944 +1,1664 @@
 <html>
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
     <title>Deductive Wine Tasting Grid</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css">
-</head>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
 
-<body>
+  <body>
     <div class="container">
-        <div class="tasting-sense">
-            <h1>Let's taste some wine!</h1>
-            <div class="row">
-                <h2>What type of wine are you drinking?</h2>
-            </div>
-            <div id="wine-type" class="row">
-                <div id="red-wine" data-wine="red-wine" class="col-sm wine-type">
+      <div id="tasting-sense" class="tasting-sense">
+        <h1>Let's taste some wine!</h1>
+        <div class="row">
+          <h2>What type of wine are you drinking?</h2>
+        </div>
+        <div id="wine-type" class="row">
+          <div id="red-wine" data-wine="red-wine" class="col-sm wine-type">
+            <span class="wine-type-name"></span>
+          </div>
+          <div id="white-wine" data-wine="white-wine" class="col-sm wine-type">
+            <span class="wine-type-name"></span>
+          </div>
+          <!-- <div id="other-wine" data-wine="other-wine" class="col-sm wine-type">
                     <span class="wine-type-name"></span>
-                </div>
-                <div id="white-wine" data-wine="white-wine" class="col-sm wine-type">
-                    <span class="wine-type-name"></span>
-                </div>
-                <div id="other-wine" data-wine="other-wine" class="col-sm wine-type">
-                    <span class="wine-type-name"></span>
-                </div>
-            </div>
-            <div id="other-wine-notice">
-                <p>SORRY, OTHER WINE OPTION IS NOT AVAILABLE YET!</p>
-                <button id="other-wine-prev-button" class="btn btn-outline-light">Previous</button>
-            </div>
+                </div> -->
         </div>
+        <!-- <div id="other-wine-notice">
+          <p>SORRY, OTHER WINE OPTION IS NOT AVAILABLE YET!</p>
+          <button id="other-wine-prev-button" class="btn btn-outline-light">
+            Previous
+          </button>
+        </div> -->
+      </div>
 
-
-        <!-- Sight -->
-        <!-- Sight Row 1 -->
-        <div id="sight-row1" class="collapse">
-            <div class="row">
-                <h2>What do you see?</h2>
-            </div>
-            <div class="row sight">
-                <div class="col sight1">
-                    <span class="row">Clarity</span>
-
-                    <input type="radio" id="clarity-clear" name="clarity" value="clear">
-                    <label for="clarity-clear">Clear</label><br>
-
-                    <input type="radio" id="clarity-hazy" name="clarity" value="hazy">
-                    <label for="clarity-hazy">Hazy</label><br>
-
-                    <input type="radio" id="clarity-turbid" name="clarity" value="turbid">
-                    <label for="clarity-turbid">Turbid</label>
-                </div>
-
-                <div class="col sight2">
-                    <span class="row">Concentration</span>
-
-                    <input type="radio" id="concentration-pale" name="concentration" value="pale">
-                    <label for="concentration-pale">Pale</label><br>
-
-                    <input type="radio" id="concentration-medium" name="concentration" value="medium">
-                    <label for="concentration-medium">Medium</label><br>
-
-                    <input type="radio" id="concentration-deep" name="concentration" value="deep">
-                    <label for="concentration-deep">Deep</label>
-                </div>
-
-                <div class="col sight3 white-wine">
-                    <span class="row">Color</span>
-
-                    <input type="checkbox" id="color-white" name="color" value="white">
-                    <label for="color-white">White</label><br>
-
-                    <input type="checkbox" id="color-straw" name="color" value="straw">
-                    <label for="color-straw">Straw</label><br>
-
-                    <input type="checkbox" id="color-yellow" name="color" value="yellow">
-                    <label for="color-yellow">Yellow</label><br>
-
-                    <input type="checkbox" id="color-gold" name="color" value="gold">
-                    <label for="color-gold">Gold</label>
-                </div>
-
-                <div class="col sight3 red-wine">
-                    <span class="row">Color</span>
-
-                    <input type="checkbox" id="color-purple" name="color" value="purple">
-                    <label for="color-purple">Purple</label><br>
-
-                    <input type="checkbox" id="color-ruby" name="color" value="ruby">
-                    <label for="color-ruby">Ruby</label><br>
-
-                    <input type="checkbox" id="color-red" name="color" value="red">
-                    <label for="color-red">Red</label><br>
-
-                    <input type="checkbox" id="color-garnet" name="color" value="garnet">
-                    <label for="color-garnet">Garnet</label>
-                </div>
-
-                <div class="col sight4 white-wine">
-                    <span class="row">Secondary Colors</span>
-
-                    <input type="checkbox" id="color2-silver" name="color2" value="silver">
-                    <label for="color2-silver">Silver</label><br>
-
-                    <input type="checkbox" id="color2-green" name="color2" value="green">
-                    <label for="color2-green">Green</label><br>
-
-                    <input type="checkbox" id="color2-copper" name="color2" value="copper">
-                    <label for="color2-copper">Copper</label>
-                </div>
-
-                <div class="col sight4 red-wine">
-                    <span class="row">Secondary Colors</span>
-
-                    <input type="checkbox" id="color2-orange" name="color2" value="orange">
-                    <label for="color2-orange">Orange</label><br>
-
-                    <input type="checkbox" id="color2-blue" name="color2" value="blue">
-                    <label for="color2-blue">Blue</label><br>
-
-                    <input type="checkbox" id="color2-ruby" name="color2" value="ruby">
-                    <label for="color2-ruby">Ruby</label><br>
-
-                    <input type="checkbox" id="color2-garnet" name="color2" value="garnet">
-                    <label for="color2-garnet">Garnet</label><br>
-
-                    <input type="checkbox" id="color2-brown" name="color2" value="brown">
-                    <label for="color2-brown">Brown</label>
-                </div>
-            </div>
-            <div id="next-button">
-                <button class="btn btn-outline-light">Next</button>
-                <button class="btn btn-outline-light">Previous</button>
-            </div>
+      <div class="instruction" id="sight-inst">
+        <div class="instruction-blurb row">
+          <h2>
+            There are lots of information you can gain from observing the wine
+            with your eyes. For example, colors can give the taster clues to the
+            grape variety or age.
+            <br /><br />
+            A wine's color is better judged by putting it against a white
+            background. Hold the glass up to a background in a well-lighted room
+            at an angle.
+          </h2>
         </div>
-
-
-        <!-- Sight Row 2 -->
-        <div id="sight-row2" class="collapse">
-            <div class="row sight">
-                <div class="col sight5">
-                    <span class="row">Rim Variation</span>
-
-                    <input type="radio" id="rim-yes" name="rim" value="yes">
-                    <label for="rim-yes">Yes</label><br>
-
-                    <input type="radio" id="rim-no" name="rim" value="no">
-                    <label for="rim-no">No</label>
-                </div>
-
-                <div class="col sight6 red-wine">
-                    <span class="row">Extract/Staining</span>
-
-                    <input type="radio" id="extract-none" name="extract" value="none">
-                    <label for="extract-none">None</label><br>
-
-                    <input type="radio" id="extract-light" name="extract" value="light">
-                    <label for="extract-light">Light</label><br>
-
-                    <input type="radio" id="extract-medium" name="extract" value="medium">
-                    <label for="extract-medium">Medium</label><br>
-
-                    <input type="radio" id="extract-heavy" name="extract" value="heavy">
-                    <label for="extract-heavy">Heavy</label>
-                </div>
-
-                <div class="col sight7">
-                    <span class="row">Tearing</span>
-
-                    <input type="radio" id="tearing-light" name="tearing" value="light">
-                    <label for="tearing-light">Light</label><br>
-
-                    <input type="radio" id="tearing-medium" name="tearing" value="medium">
-                    <label for="tearing-medium">Medium</label><br>
-
-                    <input type="radio" id="tearing-heavy" name="tearing" value="heavy">
-                    <label for="tearing-heavy">Heavy</label>
-                </div>
-
-                <div class="col sight8">
-                    <span class="row">Gas Evidence</span>
-
-                    <input type="radio" id="gas-yes" name="gas" value="yes">
-                    <label for="gas-yes">Yes</label><br>
-
-                    <input type="radio" id="gas-no" name="gas" value="no">
-                    <label for="gas-no">No</label>
-                </div>
-                <div class="col sight9 white-wine"></div>
-
-            </div>
-            <div id="next-button">
-                <button class="btn btn-outline-light">Next</button>
-                <button class="btn btn-outline-light">Previous</button>
-            </div>
+        <div id="next-button">
+          <button class="btn btn-outline-light">Next</button>
+          <button class="btn btn-outline-light">Previous</button>
         </div>
+      </div>
 
-        <!-- Nose -->
-        <!-- Nose Row 1 -->
-        <div id="nose-row1" class="collapse">
-            <div class="row">
-                <h2>What do you smell?</h2>
-            </div>
-            <div class="row nose">
-                <div class="col nose1">
-                    <span class="row">Intensity</span>
-
-                    <input type="radio" id="intensity-delicate" name="intensity" value="delicate">
-                    <label for="intensity-delicate">Delicate</label><br>
-
-                    <input type="radio" id="intensity-moderate" name="intensity" value="moderate">
-                    <label for="intensity-moderate">Moderate</label><br>
-
-                    <input type="radio" id="intensity-powerful" name="intensity" value="powerful">
-                    <label for="intensity-powerful">Powerful</label>
-                </div>
-
-                <div class="col nose2">
-                    <span class="row">Age Assessment</span>
-
-                    <input type="radio" id="age-youthful" name="age" value="youthful">
-                    <label for="age-youthful">Youthful</label><br>
-
-                    <input type="radio" id="age-developing" name="age" value="developing">
-                    <label for="age-developing">Developing</label><br>
-
-                    <input type="radio" id="age-vinous" name="age" value="vinous">
-                    <label for="age-vinous">Vinous</label>
-                </div>
-
-                <div class="col nose3 white-wine">
-                    <span class="row">Fruit</span>
-
-                    <input type="checkbox" id="fruit-citrus" name="fruit" value="citrus">
-                    <label for="fruit-citrus">Citrus</label><br>
-
-                    <input type="checkbox" id="fruit-applepear" name="fruit" value="applepear">
-                    <label for="fruit-applepear">Apple/Pear</label><br>
-
-                    <input type="checkbox" id="fruit-stonepit" name="fruit" value="stonepit">
-                    <label for="fruit-stonepit">Stone/Pit</label><br>
-
-                    <input type="checkbox" id="fruit-tropical" name="fruit" value="tropical">
-                    <label for="fruit-tropical">Tropical</label><br>
-
-                    <input type="checkbox" id="fruit-melon" name="fruit" value="melon">
-                    <label for="fruit-melon">Melon</label>
-                </div>
-
-                <div class="col nose3 red-wine">
-                    <span class="row">Fruit</span>
-
-                    <input type="checkbox" id="fruit-red" name="fruit" value="red">
-                    <label for="fruit-red">Red</label><br>
-
-                    <input type="checkbox" id="fruit-black" name="fruit" value="black">
-                    <label for="fruit-black">Black</label><br>
-
-                    <input type="checkbox" id="fruit-blue" name="fruit" value="blue">
-                    <label for="fruit-blue">Blue</label>
-                </div>
-
-                <div class="col nose4">
-                    <span class="row">Fruit Character</span>
-
-                    <input type="checkbox" id="fruitchar-ripe" name="fruitchar" value="ripe">
-                    <label for="fruitchar-ripe">Ripe</label><br>
-
-                    <input type="checkbox" id="fruitchar-fresh" name="fruitchar" value="fresh">
-                    <label for="fruitchar-fresh">Fresh</label><br>
-
-                    <input type="checkbox" id="fruitchar-tart" name="fruitchar" value="tart">
-                    <label for="fruitchar-tart">Tart</label><br>
-
-                    <input type="checkbox" id="fruitchar-baked" name="fruitchar" value="baked">
-                    <label for="fruitchar-baked">Baked</label><br>
-
-                    <input type="checkbox" id="fruitchar-stewed" name="fruitchar" value="stewed">
-                    <label for="fruitchar-stewed">Stewed</label><br>
-
-                    <input type="checkbox" id="fruitchar-dried" name="fruitchar" value="dried">
-                    <label for="fruitchar-dried">Dried</label><br>
-
-                    <input type="checkbox" id="fruitchar-desiccated" name="fruitchar" value="desiccated">
-                    <label for="fruitchar-desiccated">Desiccated</label><br>
-
-                    <input type="checkbox" id="fruitchar-bruised" name="fruitchar" value="bruised">
-                    <label for="fruitchar-bruised">Bruised</label><br>
-
-                    <input type="checkbox" id="fruitchar-jammy" name="fruitchar" value="jammy">
-                    <label for="fruitchar-jammy">Jammy</label>
-                </div>
-            </div>
-            <div id="next-button">
-                <button class="btn btn-outline-light">Next</button>
-                <button class="btn btn-outline-light">Previous</button>
-            </div>
+      <!-- Sight -->
+      <!-- Sight Row 1 -->
+      <div id="sight-row1" class="collapse">
+        <div class="row">
+          <h2>What do you see?</h2>
         </div>
+        <div class="row sight">
+          <div class="col sight1">
+            <span class="row">Clarity</span>
 
-        <!-- Nose Row 2 -->
-        <div id="nose-row2" class="collapse">
-            <div class="row nose">
-                <div class="col nose5">
-                    <span class="row">Non-Fruit</span>
+            <input
+              type="radio"
+              id="clarity-clear"
+              name="clarity"
+              value="clear"
+            />
+            <label for="clarity-clear">Clear</label><br />
 
-                    <input type="checkbox" id="nonfruit-floral" name="nonfruit" value="floral">
-                    <label for="nonfruit-floral">Floral</label><br>
+            <input type="radio" id="clarity-hazy" name="clarity" value="hazy" />
+            <label for="clarity-hazy">Hazy</label><br />
 
-                    <input type="checkbox" id="nonfruit-vegetal" name="nonfruit" value="vegetal">
-                    <label for="nonfruit-vegetal">Vegetal</label><br>
+            <input
+              type="radio"
+              id="clarity-turbid"
+              name="clarity"
+              value="turbid"
+            />
+            <label for="clarity-turbid">Turbid</label>
+          </div>
 
-                    <input type="checkbox" id="nonfruit-herbal" name="nonfruit" value="herbal">
-                    <label for="nonfruit-herbal">Herbal</label><br>
+          <div class="col sight2">
+            <span class="row">Concentration</span>
 
-                    <input type="checkbox" id="nonfruit-spice" name="nonfruit" value="spice">
-                    <label for="nonfruit-spice">Spice</label><br>
+            <input
+              type="radio"
+              id="concentration-pale"
+              name="concentration"
+              value="pale"
+            />
+            <label for="concentration-pale">Pale</label><br />
 
-                    <input type="checkbox" id="nonfruit-animal" name="nonfruit" value="animal">
-                    <label for="nonfruit-animal">Animal</label><br>
+            <input
+              type="radio"
+              id="concentration-medium"
+              name="concentration"
+              value="medium"
+            />
+            <label for="concentration-medium">Medium</label><br />
 
-                    <input type="checkbox" id="nonfruit-barn" name="nonfruit" value="barn">
-                    <label for="nonfruit-barn">Barn</label><br>
+            <input
+              type="radio"
+              id="concentration-deep"
+              name="concentration"
+              value="deep"
+            />
+            <label for="concentration-deep">Deep</label>
+          </div>
 
-                    <input type="checkbox" id="nonfruit-petrol" name="nonfruit" value="petrol">
-                    <label for="nonfruit-petrol">Petrol</label><br>
+          <div class="col sight3 white-wine">
+            <span class="row">Color</span>
 
-                    <input type="checkbox" id="nonfruit-fermentation" name="nonfruit" value="fermentation">
-                    <label for="nonfruit-fermentation">Fermentation</label>
-                </div>
+            <input
+              type="checkbox"
+              id="color-white"
+              name="color"
+              value="white"
+            />
+            <label for="color-white">White</label><br />
 
-                <div class="col nose6">
-                    <span class="row">Earth</span>
+            <input
+              type="checkbox"
+              id="color-straw"
+              name="color"
+              value="straw"
+            />
+            <label for="color-straw">Straw</label><br />
 
-                    <input type="checkbox" id="earth-forestfloor" name="earth" value="forestfloor">
-                    <label for="earth-forestfloor">Forest Floor</label><br>
+            <input
+              type="checkbox"
+              id="color-yellow"
+              name="color"
+              value="yellow"
+            />
+            <label for="color-yellow">Yellow</label><br />
 
-                    <input type="checkbox" id="earth-compost" name="earth" value="compost">
-                    <label for="earth-compost">Compost</label><br>
+            <input type="checkbox" id="color-gold" name="color" value="gold" />
+            <label for="color-gold">Gold</label>
+          </div>
 
-                    <input type="checkbox" id="earth-mushrooms" name="earth" value="mushrooms">
-                    <label for="earth-mushrooms">Mushrooms</label><br>
+          <div class="col sight3 red-wine">
+            <span class="row">Color</span>
 
-                    <input type="checkbox" id="earth-pottingsoil" name="earth" value="pottingsoil">
-                    <label for="earth-pottingsoil">Potting Soil</label>
-                </div>
+            <input
+              type="checkbox"
+              id="color-purple"
+              name="color"
+              value="purple"
+            />
+            <label for="color-purple">Purple</label><br />
 
-                <div class="col nose7">
-                    <span class="row">Mineral</span>
+            <input type="checkbox" id="color-ruby" name="color" value="ruby" />
+            <label for="color-ruby">Ruby</label><br />
 
-                    <input type="checkbox" id="mineral-mineral" name="mineral" value="mineral">
-                    <label for="mineral-mineral">Mineral</label><br>
+            <input type="checkbox" id="color-red" name="color" value="red" />
+            <label for="color-red">Red</label><br />
 
-                    <input type="checkbox" id="mineral-wetstone" name="mineral" value="wetstone">
-                    <label for="mineral-wetstone">Wet Stone</label><br>
+            <input
+              type="checkbox"
+              id="color-garnet"
+              name="color"
+              value="garnet"
+            />
+            <label for="color-garnet">Garnet</label>
+          </div>
 
-                    <input type="checkbox" id="mineral-limestone" name="mineral" value="limestone">
-                    <label for="mineral-limestone">Limestone</label><br>
+          <div class="col sight4 white-wine">
+            <span class="row">Secondary Colors</span>
 
-                    <input type="checkbox" id="mineral-chalk" name="mineral" value="chalk">
-                    <label for="mineral-chalk">Chalk</label><br>
+            <input
+              type="checkbox"
+              id="color2-silver"
+              name="color2"
+              value="silver"
+            />
+            <label for="color2-silver">Silver</label><br />
 
-                    <input type="checkbox" id="mineral-slate" name="mineral" value="slate">
-                    <label for="mineral-slate">Slate</label><br>
+            <input
+              type="checkbox"
+              id="color2-green"
+              name="color2"
+              value="green"
+            />
+            <label for="color2-green">Green</label><br />
 
-                    <input type="checkbox" id="mineral-flint" name="mineral" value="flint">
-                    <label for="mineral-flint">Flint</label>
-                </div>
+            <input
+              type="checkbox"
+              id="color2-copper"
+              name="color2"
+              value="copper"
+            />
+            <label for="color2-copper">Copper</label>
+          </div>
 
-                <div class="col nose8">
-                    <span class="row">Wood</span>
+          <div class="col sight4 red-wine">
+            <span class="row">Secondary Colors</span>
 
-                    <input type="checkbox" id="wood-none" name="wood" value="none">
-                    <label for="wood-none">None</label><br>
+            <input
+              type="checkbox"
+              id="color2-orange"
+              name="color2"
+              value="orange"
+            />
+            <label for="color2-orange">Orange</label><br />
 
-                    <input type="checkbox" id="wood-old" name="wood" value="old">
-                    <label for="wood-old">Old</label><br>
+            <input
+              type="checkbox"
+              id="color2-blue"
+              name="color2"
+              value="blue"
+            />
+            <label for="color2-blue">Blue</label><br />
 
-                    <input type="checkbox" id="wood-new" name="wood" value="new">
-                    <label for="wood-new">New</label><br>
+            <input
+              type="checkbox"
+              id="color2-ruby"
+              name="color2"
+              value="ruby"
+            />
+            <label for="color2-ruby">Ruby</label><br />
 
-                    <input type="checkbox" id="wood-large" name="wood" value="large">
-                    <label for="wood-large">Large</label><br>
+            <input
+              type="checkbox"
+              id="color2-garnet"
+              name="color2"
+              value="garnet"
+            />
+            <label for="color2-garnet">Garnet</label><br />
 
-                    <input type="checkbox" id="wood-small" name="wood" value="small">
-                    <label for="wood-small">Small</label><br>
-
-                    <input type="checkbox" id="wood-french" name="wood" value="french">
-                    <label for="wood-french">French</label><br>
-
-                    <input type="checkbox" id="wood-american" name="wood" value="american">
-                    <label for="wood-american">American</label>
-                </div>
-            </div>
-            <div id="next-button">
-                <button class="btn btn-outline-light">Next</button>
-                <button class="btn btn-outline-light">Previous</button>
-            </div>
-
+            <input
+              type="checkbox"
+              id="color2-brown"
+              name="color2"
+              value="brown"
+            />
+            <label for="color2-brown">Brown</label>
+          </div>
         </div>
-
-        <!-- Palate -->
-        <!-- Palate Row 1 -->
-        <div id="palate-row1" class="collapse">
-            <div class="row">
-                <h2>What do you taste?</h2>
-            </div>
-            <div class="row palate">
-                <div class="col palate1">
-                    <span class="row">Sweetness</span>
-
-                    <input type="radio" id="sweetness-bonedry" name="sweetness" value="bonedry">
-                    <label for="sweetness-bonedry">Bone Dry</label><br>
-
-                    <input type="radio" id="sweetness-dry" name="sweetness" value="dry">
-                    <label for="sweetness-dry">Dry</label><br>
-
-                    <input type="radio" id="sweetness-offdry" name="sweetness" value="offdry">
-                    <label for="sweetness-offdry">Off-Dry</label><br>
-
-                    <input type="radio" id="sweetness-mediumsweet" name="sweetness" value="mediumsweet">
-                    <label for="sweetness-mediumsweet">Medium Sweet</label><br>
-
-                    <input type="radio" id="sweetness-sweet" name="sweetness" value="sweet">
-                    <label for="sweetness-sweet">Sweet</label><br>
-
-                    <input type="radio" id="sweetness-luscsweet" name="sweetness" value="luscsweet">
-                    <label for="sweetness-luscsweet">Lusciously Sweet</label>
-                </div>
-
-                <div class="col palate2 white-wine">
-                    <span class="row">Fruit</span>
-
-                    <input type="checkbox" id="fruit2-citrus" name="fruit-pal" value="citrus">
-                    <label for="fruit2-citrus">Citrus</label><br>
-
-                    <input type="checkbox" id="fruit2-applepear" name="fruit-pal" value="applepear">
-                    <label for="fruit2-applepear">Apple/Pear</label><br>
-
-                    <input type="checkbox" id="fruit2-stonepit" name="fruit-pal" value="stonepit">
-                    <label for="fruit2-stonepit">Stone/Pit</label><br>
-
-                    <input type="checkbox" id="fruit2-tropical" name="fruit-pal" value="tropical">
-                    <label for="fruit2-tropical">Tropical</label><br>
-
-                    <input type="checkbox" id="fruit2-melon" name="fruit-pal" value="melon">
-                    <label for="fruit2-melon">Melon</label>
-                </div>
-
-                <div class="col palate2 red-wine">
-                    <span class="row">Fruit</span>
-
-                    <input type="checkbox" id="fruit2-red" name="fruit-pal" value="red">
-                    <label for="fruit2-red">Red</label><br>
-
-                    <input type="checkbox" id="fruit2-black" name="fruit-pal" value="black">
-                    <label for="fruit2-black">Black</label><br>
-
-                    <input type="checkbox" id="fruit2-blue" name="fruit-pal" value="blue">
-                    <label for="fruit2-blue">Blue</label>
-                </div>
-
-                <div class="col palate3">
-                    <span class="row">Fruit Character</span>
-
-                    <input type="checkbox" id="fruitchar2-ripe" name="fruitchar-pal" value="ripe">
-                    <label for="fruitchar2-ripe">Ripe</label><br>
-
-                    <input type="checkbox" id="fruitchar2-fresh" name="fruitchar-pal" value="fresh">
-                    <label for="fruitchar2-fresh">Fresh</label><br>
-
-                    <input type="checkbox" id="fruitchar2-tart" name="fruitchar-pal" value="tart">
-                    <label for="fruitchar2-tart">Tart</label><br>
-
-                    <input type="checkbox" id="fruitchar2-baked" name="fruitchar-pal" value="baked">
-                    <label for="fruitchar2-baked">Baked</label><br>
-
-                    <input type="checkbox" id="fruitchar2-stewed" name="fruitchar-pal" value="stewed">
-                    <label for="fruitchar2-stewed">Stewed</label><br>
-
-                    <input type="checkbox" id="fruitchar2-dried" name="fruitchar-pal" value="dried">
-                    <label for="fruitchar2-dried">Dried</label><br>
-
-                    <input type="checkbox" id="fruitchar2-desiccated" name="fruitchar-pal" value="desiccated">
-                    <label for="fruitchar2-desiccated">Desiccated</label><br>
-
-                    <input type="checkbox" id="fruitchar2-bruised" name="fruitchar-pal" value="bruised">
-                    <label for="fruitchar2-bruised">Bruised</label><br>
-
-                    <input type="checkbox" id="fruitchar2-jammy" name="fruitchar-pal" value="jammy">
-                    <label for="fruitchar2-jammy">Jammy</label>
-                </div>
-
-                <div class="col palate4">
-                    <span class="row">Non-Fruit</span>
-
-                    <input type="checkbox" id="nonfruit2-floral" name="nonfruit-pal" value="floral">
-                    <label for="nonfruit2-floral">Floral</label><br>
-
-                    <input type="checkbox" id="nonfruit2-vegetal" name="nonfruit-pal" value="vegetal">
-                    <label for="nonfruit2-vegetal">Vegetal</label><br>
-
-                    <input type="checkbox" id="nonfruit2-herbal" name="nonfruit-pal" value="herbal">
-                    <label for="nonfruit2-herbal">Herbal</label><br>
-
-                    <input type="checkbox" id="nonfruit2-spice" name="nonfruit-pal" value="spice">
-                    <label for="nonfruit2-spice">Spice</label><br>
-
-                    <input type="checkbox" id="nonfruit2-petrol" name="nonfruit-pal" value="petrol">
-                    <label for="nonfruit2-petrol">Petrol</label><br>
-
-                    <input type="checkbox" id="nonfruit2-animal" name="nonfruit-pal" value="animal">
-                    <label for="nonfruit2-animal">Animal</label><br>
-
-                    <input type="checkbox" id="nonfruit2-barn" name="nonfruit-pal" value="barn">
-                    <label for="nonfruit2-barn">Barn</label><br>
-
-                    <input type="checkbox" id="nonfruit2-fermentation" name="nonfruit-pal" value="fermentation">
-                    <label for="nonfruit2-fermentation">Fermentation</label>
-                </div>
-            </div>
-            <div id="next-button">
-                <button class="btn btn-outline-light">Next</button>
-                <button class="btn btn-outline-light">Previous</button>
-            </div>
+        <div id="next-button">
+          <button class="btn btn-outline-light">Next</button>
+          <button class="btn btn-outline-light">Previous</button>
         </div>
+      </div>
 
-        <!-- Palate Row 2 -->
-        <div id="palate-row2" class="collapse">
-            <div class="row palate">
-                <div class="col palate5">
-                    <span class="row">Earth</span>
+      <!-- Sight Row 2 -->
+      <div id="sight-row2" class="collapse">
+        <div class="row sight">
+          <div class="col sight5">
+            <span class="row">Rim Variation</span>
 
-                    <input type="checkbox" id="earth2-forestfloor" name="earth-pal" value="forestfloor">
-                    <label for="earth2-forestfloor">Forest Floor</label><br>
+            <input type="radio" id="rim-yes" name="rim" value="yes" />
+            <label for="rim-yes">Yes</label><br />
 
-                    <input type="checkbox" id="earth2-compost" name="earth-pal" value="compost">
-                    <label for="earth2-compost">Compost</label><br>
+            <input type="radio" id="rim-no" name="rim" value="no" />
+            <label for="rim-no">No</label>
+          </div>
 
-                    <input type="checkbox" id="earth2-mushrooms" name="earth-pal" value="mushrooms">
-                    <label for="earth2-mushrooms">Mushrooms</label><br>
+          <div class="col sight6 red-wine">
+            <span class="row">Extract/Staining</span>
 
-                    <input type="checkbox" id="earth2-pottingsoil" name="earth-pal" value="pottingsoil">
-                    <label for="earth2-pottingsoil">Potting Soil</label>
-                </div>
+            <input type="radio" id="extract-none" name="extract" value="none" />
+            <label for="extract-none">None</label><br />
 
-                <div class="col palate6">
-                    <span class="row">Mineral</span>
+            <input
+              type="radio"
+              id="extract-light"
+              name="extract"
+              value="light"
+            />
+            <label for="extract-light">Light</label><br />
 
-                    <input type="checkbox" id="mineral2-mineral" name="mineral-pal" value="mineral">
-                    <label for="mineral2-mineral">Mineral</label><br>
+            <input
+              type="radio"
+              id="extract-medium"
+              name="extract"
+              value="medium"
+            />
+            <label for="extract-medium">Medium</label><br />
 
-                    <input type="checkbox" id="mineral2-wetstone" name="mineral-pal" value="wetstone">
-                    <label for="mineral2-wetstone">Wet Stone</label><br>
+            <input
+              type="radio"
+              id="extract-heavy"
+              name="extract"
+              value="heavy"
+            />
+            <label for="extract-heavy">Heavy</label>
+          </div>
 
-                    <input type="checkbox" id="mineral2-limestone" name="mineral-pal" value="limestone">
-                    <label for="mineral2-limestone">Limestone</label><br>
+          <div class="col sight7">
+            <span class="row">Tearing</span>
 
-                    <input type="checkbox" id="mineral2-chalk" name="mineral-pal" value="chalk">
-                    <label for="mineral2-chalk">Chalk</label><br>
+            <input
+              type="radio"
+              id="tearing-light"
+              name="tearing"
+              value="light"
+            />
+            <label for="tearing-light">Light</label><br />
 
-                    <input type="checkbox" id="mineral2-slate" name="mineral-pal" value="slate">
-                    <label for="mineral2-slate">Slate</label><br>
+            <input
+              type="radio"
+              id="tearing-medium"
+              name="tearing"
+              value="medium"
+            />
+            <label for="tearing-medium">Medium</label><br />
 
-                    <input type="checkbox" id="mineral2-flint" name="mineral-pal" value="flint">
-                    <label for="mineral2-flint">Flint</label>
-                </div>
+            <input
+              type="radio"
+              id="tearing-heavy"
+              name="tearing"
+              value="heavy"
+            />
+            <label for="tearing-heavy">Heavy</label>
+          </div>
 
-                <div class="col palate7">
-                    <span class="row">Wood</span>
+          <div class="col sight8">
+            <span class="row">Gas Evidence</span>
 
-                    <input type="checkbox" id="wood2-none" name="wood-pal" value="none">
-                    <label for="wood2-none">None</label><br>
+            <input type="radio" id="gas-yes" name="gas" value="yes" />
+            <label for="gas-yes">Yes</label><br />
 
-                    <input type="checkbox" id="wood2-old" name="wood-pal" value="old">
-                    <label for="wood2-old">Old</label><br>
-
-                    <input type="checkbox" id="wood2-new" name="wood-pal" value="new">
-                    <label for="wood2-new">New</label><br>
-
-                    <input type="checkbox" id="wood2-large" name="wood-pal" value="large">
-                    <label for="wood2-large">Large</label><br>
-
-                    <input type="checkbox" id="wood2-small" name="wood-pal" value="small">
-                    <label for="wood2-small">Small</label><br>
-
-                    <input type="checkbox" id="wood2-french" name="wood-pal" value="french">
-                    <label for="wood2-french">French</label><br>
-
-                    <input type="checkbox" id="wood2-american" name="wood-pal" value="american">
-                    <label for="wood2-american">American</label>
-                </div>
-                <div class="col palate8"></div>
-            </div>
-            <div id="next-button">
-                <button class="btn btn-outline-light">Next</button>
-                <button class="btn btn-outline-light">Previous</button>
-            </div>
+            <input type="radio" id="gas-no" name="gas" value="no" />
+            <label for="gas-no">No</label>
+          </div>
+          <div class="col sight9 white-wine"></div>
         </div>
-
-        <!-- Palate Row 3 -->
-        <div id="palate-row3" class="collapse">
-            <div class="row palate">
-                <div class="col palate9 white-wine">
-                    <span class="row">Phenolic/Bitter</span>
-
-                    <input type="radio" id="pheno-yes" name="pheno" value="yes">
-                    <label for="pheno-yes">Yes</label><br>
-
-                    <input type="radio" id="pheno-no" name="pheno" value="no">
-                    <label for="pheno-no">No</label>
-                </div>
-
-                <div class="col palate9 red-wine">
-                    <span class="row">Tannin</span>
-
-                    <input type="radio" id="tannin-low" name="tannin" value="low">
-                    <label for="tannin-low">Low</label><br>
-
-                    <input type="radio" id="tannin-medminus" name="tannin" value="medminus">
-                    <label for="tannin-medminus">Med -</label><br>
-
-                    <input type="radio" id="tannin-medium" name="tannin" value="medium">
-                    <label for="tannin-medium">Medium</label><br>
-
-                    <input type="radio" id="tannin-medplus" name="tannin" value="medplus">
-                    <label for="tannin-medplus">Med +</label><br>
-
-                    <input type="radio" id="tannin-high" name="tannin" value="high">
-                    <label for="tannin-high">High</label>
-                </div>
-
-                <div class="col palate10">
-                    <span class="row">Acid</span>
-
-                    <input type="radio" id="acid-low" name="acid" value="low">
-                    <label for="acid-low">Low</label><br>
-
-                    <input type="radio" id="acid-medminus" name="acid" value="medminus">
-                    <label for="acid-medminus">Med -</label><br>
-
-                    <input type="radio" id="acid-medium" name="acid" value="medium">
-                    <label for="acid-medium">Medium</label><br>
-
-                    <input type="radio" id="acid-medplus" name="acid" value="medplus">
-                    <label for="acid-medplus">Med +</label><br>
-
-                    <input type="radio" id="acid-high" name="acid" value="high">
-                    <label for="acid-high">High</label>
-                </div>
-                <div class="col palate11">
-                    <span class="row">Alcohol</span>
-
-                    <input type="radio" id="alcohol-low" name="alcohol" value="low">
-                    <label for="alcohol-low">Low</label><br>
-
-                    <input type="radio" id="alcohol-medminus" name="alcohol" value="medminus">
-                    <label for="alcohol-medminus">Med -</label><br>
-
-                    <input type="radio" id="alcohol-medium" name="alcohol" value="medium">
-                    <label for="alcohol-medium">Medium</label><br>
-
-                    <input type="radio" id="alcohol-medplus" name="alcohol" value="medplus">
-                    <label for="alcohol-medplus">Med +</label><br>
-
-                    <input type="radio" id="alcohol-high" name="alcohol" value="high">
-                    <label for="alcohol-high">High</label>
-                </div>
-                <div class="col palate12">
-                    <span class="row">Body</span>
-
-                    <input type="radio" id="body-light" name="body" value="light">
-                    <label for="body-light">Light</label><br>
-
-                    <input type="radio" id="body-medium" name="body" value="medium">
-                    <label for="body-medium">Medium</label><br>
-
-                    <input type="radio" id="body-full" name="body" value="full">
-                    <label for="body-full">Full</label>
-                </div>
-            </div>
-            <div id="next-button">
-                <button class="btn btn-outline-light">Next</button>
-                <button class="btn btn-outline-light">Previous</button>
-            </div>
+        <div id="next-button">
+          <button class="btn btn-outline-light">Next</button>
+          <button class="btn btn-outline-light">Previous</button>
         </div>
-
-        <!-- Palate Row 4 -->
-        <div id="palate-row4" class="collapse">
-            <div class="row palate">
-                <div class="col palate13">
-                    <span class="row">Texture</span>
-
-                    <input type="radio" id="texture-creamy" name="texture" value="creamy">
-                    <label for="texture-creamy">Creamy</label><br>
-
-                    <input type="radio" id="texture-round" name="texture" value="round">
-                    <label for="texture-round">Round</label><br>
-
-                    <input type="radio" id="texture-lean" name="texture" value="lean">
-                    <label for="texture-lean">Lean</label>
-                </div>
-
-                <div class="col palate14">
-                    <span class="row">Balance</span>
-                    <label for="balance">Does any element dominate?</label>
-                    <input type="text" id="balance" name="balance">
-                </div>
-
-                <div class="col palate15">
-                    <span class="row">Length/Finish</span>
-
-                    <input type="radio" id="length-short" name="length" value="short">
-                    <label for="length-short">Short</label><br>
-
-                    <input type="radio" id="length-medminus" name="length" value="medminus">
-                    <label for="length-medminus">Med -</label><br>
-
-                    <input type="radio" id="length-medium" name="length" value="medium">
-                    <label for="length-medium">Medium</label><br>
-
-                    <input type="radio" id="length-medplus" name="length" value="medplus">
-                    <label for="length-medplus">Med +</label><br>
-
-                    <input type="radio" id="length-long" name="length" value="long">
-                    <label for="length-long">Long</label>
-                </div>
-                <div class="col palate16">
-                    <span class="row">Complexity</span>
-
-                    <input type="radio" id="complexity-low" name="complexity" value="low">
-                    <label for="complexity-low">Low</label><br>
-
-                    <input type="radio" id="complexity-medminus" name="complexity" value="medminus">
-                    <label for="complexity-medminus">Med -</label><br>
-
-                    <input type="radio" id="complexity-medium" name="complexity" value="medium">
-                    <label for="complexity-medium">Medium</label><br>
-
-                    <input type="radio" id="complexity-medplus" name="complexity" value="medplus">
-                    <label for="complexity-medplus">Med +</label><br>
-
-                    <input type="radio" id="complexity-high" name="complexity" value="high">
-                    <label for="complexity-high">High</label>
-                </div>
-            </div>
-            <div id="next-button">
-                <button id="last-next-button" class="btn btn-outline-light">Next</button>
-                <button class="btn btn-outline-light">Previous</button>
-            </div>
+      </div>
+      <div class="instruction" id="nose-inst">
+        <div class="instruction-blurb row">
+          <h2>
+            Time to smell the wine. Smell is the main sense used in wine
+            tasting, so sniffing the wine before the initial step is essential.
+            <br /><br />
+            Take a swirl, quickly bring the glass to your nose right into the
+            airspace of the glass to smell the wine.
+          </h2>
         </div>
-        <div id="summary" class="row summary">
-            <div class="col">
-                <span>Wine Type</span>
-                <table>
-                    <tbody>
-                        <tr style="height: 23px;">
-                            <td style="height: 23px;">&nbsp;Red Wine</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+        <div id="next-button">
+          <button class="btn btn-outline-light">Next</button>
+          <button class="btn btn-outline-light">Previous</button>
+        </div>
+      </div>
 
+      <!-- Nose -->
+      <!-- Nose Row 1 -->
+      <div id="nose-row1" class="collapse">
+        <div class="row">
+          <h2>What do you smell?</h2>
         </div>
-        <div class="row summary">
-            <div class="col">
-                <span>Sight</span>
-                <table>
-                    <tbody>
-                        <tr style="height: 23px;">
-                            <td style="height: 23px;">&nbsp;Clarity/Visible Sediment</td>
-                            <td id="clarity" style="height: 23px;">&nbsp;</td>
-                        </tr>
-                        <tr style="height: 23px;">
-                            <td style="height: 23px;">&nbsp;Concentration</td>
-                            <td id="concentration" style="height: 23px;">&nbsp;</td>
-                        </tr>
-                        <tr style="height: 23px;">
-                            <td style="height: 23px;">&nbsp;Color</td>
-                            <td id="color" style="height: 23px;">&nbsp;</td>
-                        </tr>
-                        <tr style="height: 23px;">
-                            <td style="height: 23px;">&nbsp;Secondary Colors</td>
-                            <td id="color2" style="height: 23px;">&nbsp;</td>
-                        </tr>
-                        <tr style="height: 23px;">
-                            <td style="height: 23px;">&nbsp;Rim Variation</td>
-                            <td id="rim" style="height: 23px;">&nbsp;</td>
-                        </tr>
-                        <tr clas="summary-red-wine" style="height: 23px;">
-                            <td style="height: 23px;">&nbsp;Extract/Staining</td>
-                            <td id="extract" style="height: 23px;">&nbsp;</td>
-                        </tr>
-                        <tr style="height: 23px;">
-                            <td style="height: 23px;">&nbsp;Tearing</td>
-                            <td id="tearing" style="height: 23px;">&nbsp;</td>
-                        </tr>
-                        <tr style="height: 23px;">
-                            <td style="height: 23px;">&nbsp;Gas Evidence</td>
-                            <td id="gas" style="height: 23px;">&nbsp;</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="col">
-                <span>Nose</span>
-                <table>
-                    <tbody>
-                        <tr style="height: 23px;">
-                            <td style="height: 23px;">&nbsp;Clean/Faulty</td>
-                            <td style="height: 23px;">&nbsp;</td>
-                        </tr>
-                        <tr style="height: 23px;">
-                            <td style="height: 23px;">&nbsp;Intensity</td>
-                            <td id="intensity" style="height: 23px;">&nbsp;</td>
-                        </tr>
-                        <tr style="height: 23px;">
-                            <td style="height: 23px;">&nbsp;Age Assessment</td>
-                            <td id="age" style="height: 23px;">&nbsp;</td>
-                        </tr>
-                        <tr style="height: 23px;">
-                            <td style="height: 23px;">&nbsp;Fruit</td>
-                            <td id="fruit" style="height: 23px;">&nbsp;</td>
-                        </tr>
-                        <tr style="height: 23px;">
-                            <td style="height: 23px;">&nbsp;Fruit Character </td>
-                            <td id="fruitchar" style="height: 23px;">&nbsp;</td>
-                        </tr>
-                        <tr style="height: 23px;">
-                            <td style="height: 23px;">&nbsp;Non-Fruit</td>
-                            <td id="nonfruit" style="height: 23px;">&nbsp;</td>
-                        </tr>
-                        <tr style="height: 23px;">
-                            <td style="height: 23px;">&nbsp;Earth</td>
-                            <td id="earth" style="height: 23px;">&nbsp;</td>
-                        </tr>
-                        <tr style="height: 23px;">
-                            <td style="height: 23px;">&nbsp;Mineral</td>
-                            <td id="mineral" style="height: 23px;">&nbsp;</td>
-                        </tr>
-                        <tr style="height: 23px;">
-                            <td style="height: 23px;">&nbsp;Wood</td>
-                            <td id="wood" style="height: 23px;">&nbsp;</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+        <div class="row nose">
+          <div class="col nose1">
+            <span class="row">Intensity</span>
+
+            <input
+              type="radio"
+              id="intensity-delicate"
+              name="intensity"
+              value="delicate"
+            />
+            <label for="intensity-delicate">Delicate</label><br />
+
+            <input
+              type="radio"
+              id="intensity-moderate"
+              name="intensity"
+              value="moderate"
+            />
+            <label for="intensity-moderate">Moderate</label><br />
+
+            <input
+              type="radio"
+              id="intensity-powerful"
+              name="intensity"
+              value="powerful"
+            />
+            <label for="intensity-powerful">Powerful</label>
+          </div>
+
+          <div class="col nose2">
+            <span class="row">Age Assessment</span>
+
+            <input type="radio" id="age-youthful" name="age" value="youthful" />
+            <label for="age-youthful">Youthful</label><br />
+
+            <input
+              type="radio"
+              id="age-developing"
+              name="age"
+              value="developing"
+            />
+            <label for="age-developing">Developing</label><br />
+
+            <input type="radio" id="age-vinous" name="age" value="vinous" />
+            <label for="age-vinous">Vinous</label>
+          </div>
+
+          <div class="col nose3 white-wine">
+            <span class="row">Fruit</span>
+
+            <input
+              type="checkbox"
+              id="fruit-citrus"
+              name="fruit"
+              value="citrus"
+            />
+            <label for="fruit-citrus">Citrus</label><br />
+
+            <input
+              type="checkbox"
+              id="fruit-applepear"
+              name="fruit"
+              value="applepear"
+            />
+            <label for="fruit-applepear">Apple/Pear</label><br />
+
+            <input
+              type="checkbox"
+              id="fruit-stonepit"
+              name="fruit"
+              value="stonepit"
+            />
+            <label for="fruit-stonepit">Stone/Pit</label><br />
+
+            <input
+              type="checkbox"
+              id="fruit-tropical"
+              name="fruit"
+              value="tropical"
+            />
+            <label for="fruit-tropical">Tropical</label><br />
+
+            <input
+              type="checkbox"
+              id="fruit-melon"
+              name="fruit"
+              value="melon"
+            />
+            <label for="fruit-melon">Melon</label>
+          </div>
+
+          <div class="col nose3 red-wine">
+            <span class="row">Fruit</span>
+
+            <input type="checkbox" id="fruit-red" name="fruit" value="red" />
+            <label for="fruit-red">Red</label><br />
+
+            <input
+              type="checkbox"
+              id="fruit-black"
+              name="fruit"
+              value="black"
+            />
+            <label for="fruit-black">Black</label><br />
+
+            <input type="checkbox" id="fruit-blue" name="fruit" value="blue" />
+            <label for="fruit-blue">Blue</label>
+          </div>
+
+          <div class="col nose4">
+            <span class="row">Fruit Character</span>
+
+            <input
+              type="checkbox"
+              id="fruitchar-ripe"
+              name="fruitchar"
+              value="ripe"
+            />
+            <label for="fruitchar-ripe">Ripe</label><br />
+
+            <input
+              type="checkbox"
+              id="fruitchar-fresh"
+              name="fruitchar"
+              value="fresh"
+            />
+            <label for="fruitchar-fresh">Fresh</label><br />
+
+            <input
+              type="checkbox"
+              id="fruitchar-tart"
+              name="fruitchar"
+              value="tart"
+            />
+            <label for="fruitchar-tart">Tart</label><br />
+
+            <input
+              type="checkbox"
+              id="fruitchar-baked"
+              name="fruitchar"
+              value="baked"
+            />
+            <label for="fruitchar-baked">Baked</label><br />
+
+            <input
+              type="checkbox"
+              id="fruitchar-stewed"
+              name="fruitchar"
+              value="stewed"
+            />
+            <label for="fruitchar-stewed">Stewed</label><br />
+
+            <input
+              type="checkbox"
+              id="fruitchar-dried"
+              name="fruitchar"
+              value="dried"
+            />
+            <label for="fruitchar-dried">Dried</label><br />
+
+            <input
+              type="checkbox"
+              id="fruitchar-desiccated"
+              name="fruitchar"
+              value="desiccated"
+            />
+            <label for="fruitchar-desiccated">Desiccated</label><br />
+
+            <input
+              type="checkbox"
+              id="fruitchar-bruised"
+              name="fruitchar"
+              value="bruised"
+            />
+            <label for="fruitchar-bruised">Bruised</label><br />
+
+            <input
+              type="checkbox"
+              id="fruitchar-jammy"
+              name="fruitchar"
+              value="jammy"
+            />
+            <label for="fruitchar-jammy">Jammy</label>
+          </div>
         </div>
-        <div id="palate-summary" class="row summary">
-            <span style="padding-left: 15px">Palate</span>
+        <div id="next-button">
+          <button class="btn btn-outline-light">Next</button>
+          <button class="btn btn-outline-light">Previous</button>
         </div>
-        <div class="row summary">
-            <div class="col">
-                <table>
-                    <tbody>
-                        <tr style="height: 23px;">
-                            <td style="height: 23px;">&nbsp;Sweetness</td>
-                            <td id="sweetness" style="height: 23px;">&nbsp;</td>
-                        </tr>
-                        <tr style="height: 23px;">
-                            <td style="height: 23px;">&nbsp;Fruit</td>
-                            <td id="fruit-pal" style="height: 23px;">&nbsp;</td>
-                        </tr>
-                        <tr style="height: 23px;">
-                            <td style="height: 23px;">&nbsp;Fruit Character</td>
-                            <td id="fruitchar-pal" style="height: 23px;">&nbsp;</td>
-                        </tr>
-                        <tr style="height: 23px;">
-                            <td style="height: 23px;">&nbsp;Non-Fruit</td>
-                            <td id="nonfruit-pal" style="height: 23px;">&nbsp;</td>
-                        </tr>
-                        <tr style="height: 23px;">
-                            <td style="height: 23px;">&nbsp;Earth</td>
-                            <td id="earth-pal" style="height: 23px;">&nbsp;</td>
-                        </tr>
-                        <tr style="height: 23px;">
-                            <td style="height: 23px;">&nbsp;Mineral</td>
-                            <td id="mineral-pal" style="height: 23px;">&nbsp;</td>
-                        </tr>
-                        <tr style="height: 23px;">
-                            <td style="height: 23px;">&nbsp;Wood</td>
-                            <td id="wood-pal" style="height: 23px;">&nbsp;</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="col">
-                <table>
-                    <tbody>
-                        <tr class="summary-white-wine" style="height: 23px;">
-                            <td style="height: 23px;">&nbsp;Phenolic/Bitter</td>
-                            <td id="pheno" style="height: 23px;">&nbsp;</td>
-                        </tr>
-                        <tr class="summary-red-wine" style="height: 23px;">
-                            <td style="height: 23px;">&nbsp;Tannin</td>
-                            <td id="tannin" style="height: 23px;">&nbsp;</td>
-                        </tr>
-                        <tr style="height: 23px;">
-                            <td style="height: 23px;">&nbsp;Acid</td>
-                            <td id="acid" style="height: 23px;">&nbsp;</td>
-                        </tr>
-                        <tr style="height: 23px;">
-                            <td style="height: 23px;">&nbsp;Alcohol</td>
-                            <td id="alcohol" style="height: 23px;">&nbsp;</td>
-                        </tr>
-                        <tr style="height: 23px;">
-                            <td style="height: 23px;">&nbsp;Body</td>
-                            <td id="body" style="height: 23px;">&nbsp;</td>
-                        </tr>
-                        <tr style="height: 23px;">
-                            <td style="height: 23px;">&nbsp;Texture</td>
-                            <td id="texture" style="height: 23px;">&nbsp;</td>
-                        </tr>
-                        <tr style="height: 23px;">
-                            <td style="height: 23px;">&nbsp;Balance</td>
-                            <td id="balance" style="height: 23px;">&nbsp;</td>
-                        </tr>
-                        <tr style="height: 23px;">
-                            <td style="height: 23px;">&nbsp;Length/Finish</td>
-                            <td id="length" style="height: 23px;">&nbsp;</td>
-                        </tr>
-                        <tr style="height: 23px;">
-                            <td style="height: 23px;">&nbsp;Complexity</td>
-                            <td id="complexity" style="height: 23px;">&nbsp;</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+      </div>
+
+      <!-- Nose Row 2 -->
+      <div id="nose-row2" class="collapse">
+        <div class="row nose">
+          <div class="col nose5">
+            <span class="row">Non-Fruit</span>
+
+            <input
+              type="checkbox"
+              id="nonfruit-floral"
+              name="nonfruit"
+              value="floral"
+            />
+            <label for="nonfruit-floral">Floral</label><br />
+
+            <input
+              type="checkbox"
+              id="nonfruit-vegetal"
+              name="nonfruit"
+              value="vegetal"
+            />
+            <label for="nonfruit-vegetal">Vegetal</label><br />
+
+            <input
+              type="checkbox"
+              id="nonfruit-herbal"
+              name="nonfruit"
+              value="herbal"
+            />
+            <label for="nonfruit-herbal">Herbal</label><br />
+
+            <input
+              type="checkbox"
+              id="nonfruit-spice"
+              name="nonfruit"
+              value="spice"
+            />
+            <label for="nonfruit-spice">Spice</label><br />
+
+            <input
+              type="checkbox"
+              id="nonfruit-animal"
+              name="nonfruit"
+              value="animal"
+            />
+            <label for="nonfruit-animal">Animal</label><br />
+
+            <input
+              type="checkbox"
+              id="nonfruit-barn"
+              name="nonfruit"
+              value="barn"
+            />
+            <label for="nonfruit-barn">Barn</label><br />
+
+            <input
+              type="checkbox"
+              id="nonfruit-petrol"
+              name="nonfruit"
+              value="petrol"
+            />
+            <label for="nonfruit-petrol">Petrol</label><br />
+
+            <input
+              type="checkbox"
+              id="nonfruit-fermentation"
+              name="nonfruit"
+              value="fermentation"
+            />
+            <label for="nonfruit-fermentation">Fermentation</label>
+          </div>
+
+          <div class="col nose6">
+            <span class="row">Earth</span>
+
+            <input
+              type="checkbox"
+              id="earth-forestfloor"
+              name="earth"
+              value="forestfloor"
+            />
+            <label for="earth-forestfloor">Forest Floor</label><br />
+
+            <input
+              type="checkbox"
+              id="earth-compost"
+              name="earth"
+              value="compost"
+            />
+            <label for="earth-compost">Compost</label><br />
+
+            <input
+              type="checkbox"
+              id="earth-mushrooms"
+              name="earth"
+              value="mushrooms"
+            />
+            <label for="earth-mushrooms">Mushrooms</label><br />
+
+            <input
+              type="checkbox"
+              id="earth-pottingsoil"
+              name="earth"
+              value="pottingsoil"
+            />
+            <label for="earth-pottingsoil">Potting Soil</label>
+          </div>
+
+          <div class="col nose7">
+            <span class="row">Mineral</span>
+
+            <input
+              type="checkbox"
+              id="mineral-mineral"
+              name="mineral"
+              value="mineral"
+            />
+            <label for="mineral-mineral">Mineral</label><br />
+
+            <input
+              type="checkbox"
+              id="mineral-wetstone"
+              name="mineral"
+              value="wetstone"
+            />
+            <label for="mineral-wetstone">Wet Stone</label><br />
+
+            <input
+              type="checkbox"
+              id="mineral-limestone"
+              name="mineral"
+              value="limestone"
+            />
+            <label for="mineral-limestone">Limestone</label><br />
+
+            <input
+              type="checkbox"
+              id="mineral-chalk"
+              name="mineral"
+              value="chalk"
+            />
+            <label for="mineral-chalk">Chalk</label><br />
+
+            <input
+              type="checkbox"
+              id="mineral-slate"
+              name="mineral"
+              value="slate"
+            />
+            <label for="mineral-slate">Slate</label><br />
+
+            <input
+              type="checkbox"
+              id="mineral-flint"
+              name="mineral"
+              value="flint"
+            />
+            <label for="mineral-flint">Flint</label>
+          </div>
+
+          <div class="col nose8">
+            <span class="row">Wood</span>
+
+            <input type="checkbox" id="wood-none" name="wood" value="none" />
+            <label for="wood-none">None</label><br />
+
+            <input type="checkbox" id="wood-old" name="wood" value="old" />
+            <label for="wood-old">Old</label><br />
+
+            <input type="checkbox" id="wood-new" name="wood" value="new" />
+            <label for="wood-new">New</label><br />
+
+            <input type="checkbox" id="wood-large" name="wood" value="large" />
+            <label for="wood-large">Large</label><br />
+
+            <input type="checkbox" id="wood-small" name="wood" value="small" />
+            <label for="wood-small">Small</label><br />
+
+            <input
+              type="checkbox"
+              id="wood-french"
+              name="wood"
+              value="french"
+            />
+            <label for="wood-french">French</label><br />
+
+            <input
+              type="checkbox"
+              id="wood-american"
+              name="wood"
+              value="american"
+            />
+            <label for="wood-american">American</label>
+          </div>
         </div>
+        <div id="next-button">
+          <button class="btn btn-outline-light">Next</button>
+          <button class="btn btn-outline-light">Previous</button>
+        </div>
+      </div>
+
+      <div class="instruction" id="palate-inst">
+        <div class="instruction-blurb row">
+          <h2>
+            Party time! Now that you have observed and smelled the wine, taste
+            the wine to capture the full perception of the glass. Take a sip of
+            wine into your mouth and try sucking on it as if pulling it through
+            a straw. Ignore the stares of those around you -- this simply
+            aerates the wine and circulates it throughout your mouth, letting it
+            coat the surface of your palate.
+            <br /><br />
+            Thoroughly tasting a wine involves perception of its array of taste
+            and mouthfeel attributes, which involve the combination of textures,
+            flavors, weight, and overall “structure”. Following appreciation of
+            its olfactory characteristics, the wine taster savors a wine by
+            holding it in the mouth for a few seconds to saturate the taste
+            buds.
+          </h2>
+        </div>
+        <div id="next-button">
+          <button class="btn btn-outline-light">Next</button>
+          <button class="btn btn-outline-light">Previous</button>
+        </div>
+      </div>
+
+      <!-- Palate -->
+      <!-- Palate Row 1 -->
+      <div id="palate-row1" class="collapse">
+        <div class="row">
+          <h2>What do you taste?</h2>
+        </div>
+        <div class="row palate">
+          <div class="col palate1">
+            <span class="row">Sweetness</span>
+
+            <input
+              type="radio"
+              id="sweetness-bonedry"
+              name="sweetness"
+              value="bonedry"
+            />
+            <label for="sweetness-bonedry">Bone Dry</label><br />
+
+            <input
+              type="radio"
+              id="sweetness-dry"
+              name="sweetness"
+              value="dry"
+            />
+            <label for="sweetness-dry">Dry</label><br />
+
+            <input
+              type="radio"
+              id="sweetness-offdry"
+              name="sweetness"
+              value="offdry"
+            />
+            <label for="sweetness-offdry">Off-Dry</label><br />
+
+            <input
+              type="radio"
+              id="sweetness-mediumsweet"
+              name="sweetness"
+              value="mediumsweet"
+            />
+            <label for="sweetness-mediumsweet">Medium Sweet</label><br />
+
+            <input
+              type="radio"
+              id="sweetness-sweet"
+              name="sweetness"
+              value="sweet"
+            />
+            <label for="sweetness-sweet">Sweet</label><br />
+
+            <input
+              type="radio"
+              id="sweetness-luscsweet"
+              name="sweetness"
+              value="luscsweet"
+            />
+            <label for="sweetness-luscsweet">Lusciously Sweet</label>
+          </div>
+
+          <div class="col palate2 white-wine">
+            <span class="row">Fruit</span>
+
+            <input
+              type="checkbox"
+              id="fruit2-citrus"
+              name="fruit-pal"
+              value="citrus"
+            />
+            <label for="fruit2-citrus">Citrus</label><br />
+
+            <input
+              type="checkbox"
+              id="fruit2-applepear"
+              name="fruit-pal"
+              value="applepear"
+            />
+            <label for="fruit2-applepear">Apple/Pear</label><br />
+
+            <input
+              type="checkbox"
+              id="fruit2-stonepit"
+              name="fruit-pal"
+              value="stonepit"
+            />
+            <label for="fruit2-stonepit">Stone/Pit</label><br />
+
+            <input
+              type="checkbox"
+              id="fruit2-tropical"
+              name="fruit-pal"
+              value="tropical"
+            />
+            <label for="fruit2-tropical">Tropical</label><br />
+
+            <input
+              type="checkbox"
+              id="fruit2-melon"
+              name="fruit-pal"
+              value="melon"
+            />
+            <label for="fruit2-melon">Melon</label>
+          </div>
+
+          <div class="col palate2 red-wine">
+            <span class="row">Fruit</span>
+
+            <input
+              type="checkbox"
+              id="fruit2-red"
+              name="fruit-pal"
+              value="red"
+            />
+            <label for="fruit2-red">Red</label><br />
+
+            <input
+              type="checkbox"
+              id="fruit2-black"
+              name="fruit-pal"
+              value="black"
+            />
+            <label for="fruit2-black">Black</label><br />
+
+            <input
+              type="checkbox"
+              id="fruit2-blue"
+              name="fruit-pal"
+              value="blue"
+            />
+            <label for="fruit2-blue">Blue</label>
+          </div>
+
+          <div class="col palate3">
+            <span class="row">Fruit Character</span>
+
+            <input
+              type="checkbox"
+              id="fruitchar2-ripe"
+              name="fruitchar-pal"
+              value="ripe"
+            />
+            <label for="fruitchar2-ripe">Ripe</label><br />
+
+            <input
+              type="checkbox"
+              id="fruitchar2-fresh"
+              name="fruitchar-pal"
+              value="fresh"
+            />
+            <label for="fruitchar2-fresh">Fresh</label><br />
+
+            <input
+              type="checkbox"
+              id="fruitchar2-tart"
+              name="fruitchar-pal"
+              value="tart"
+            />
+            <label for="fruitchar2-tart">Tart</label><br />
+
+            <input
+              type="checkbox"
+              id="fruitchar2-baked"
+              name="fruitchar-pal"
+              value="baked"
+            />
+            <label for="fruitchar2-baked">Baked</label><br />
+
+            <input
+              type="checkbox"
+              id="fruitchar2-stewed"
+              name="fruitchar-pal"
+              value="stewed"
+            />
+            <label for="fruitchar2-stewed">Stewed</label><br />
+
+            <input
+              type="checkbox"
+              id="fruitchar2-dried"
+              name="fruitchar-pal"
+              value="dried"
+            />
+            <label for="fruitchar2-dried">Dried</label><br />
+
+            <input
+              type="checkbox"
+              id="fruitchar2-desiccated"
+              name="fruitchar-pal"
+              value="desiccated"
+            />
+            <label for="fruitchar2-desiccated">Desiccated</label><br />
+
+            <input
+              type="checkbox"
+              id="fruitchar2-bruised"
+              name="fruitchar-pal"
+              value="bruised"
+            />
+            <label for="fruitchar2-bruised">Bruised</label><br />
+
+            <input
+              type="checkbox"
+              id="fruitchar2-jammy"
+              name="fruitchar-pal"
+              value="jammy"
+            />
+            <label for="fruitchar2-jammy">Jammy</label>
+          </div>
+
+          <div class="col palate4">
+            <span class="row">Non-Fruit</span>
+
+            <input
+              type="checkbox"
+              id="nonfruit2-floral"
+              name="nonfruit-pal"
+              value="floral"
+            />
+            <label for="nonfruit2-floral">Floral</label><br />
+
+            <input
+              type="checkbox"
+              id="nonfruit2-vegetal"
+              name="nonfruit-pal"
+              value="vegetal"
+            />
+            <label for="nonfruit2-vegetal">Vegetal</label><br />
+
+            <input
+              type="checkbox"
+              id="nonfruit2-herbal"
+              name="nonfruit-pal"
+              value="herbal"
+            />
+            <label for="nonfruit2-herbal">Herbal</label><br />
+
+            <input
+              type="checkbox"
+              id="nonfruit2-spice"
+              name="nonfruit-pal"
+              value="spice"
+            />
+            <label for="nonfruit2-spice">Spice</label><br />
+
+            <input
+              type="checkbox"
+              id="nonfruit2-petrol"
+              name="nonfruit-pal"
+              value="petrol"
+            />
+            <label for="nonfruit2-petrol">Petrol</label><br />
+
+            <input
+              type="checkbox"
+              id="nonfruit2-animal"
+              name="nonfruit-pal"
+              value="animal"
+            />
+            <label for="nonfruit2-animal">Animal</label><br />
+
+            <input
+              type="checkbox"
+              id="nonfruit2-barn"
+              name="nonfruit-pal"
+              value="barn"
+            />
+            <label for="nonfruit2-barn">Barn</label><br />
+
+            <input
+              type="checkbox"
+              id="nonfruit2-fermentation"
+              name="nonfruit-pal"
+              value="fermentation"
+            />
+            <label for="nonfruit2-fermentation">Fermentation</label>
+          </div>
+        </div>
+        <div id="next-button">
+          <button class="btn btn-outline-light">Next</button>
+          <button class="btn btn-outline-light">Previous</button>
+        </div>
+      </div>
+
+      <!-- Palate Row 2 -->
+      <div id="palate-row2" class="collapse">
+        <div class="row palate">
+          <div class="col palate5">
+            <span class="row">Earth</span>
+
+            <input
+              type="checkbox"
+              id="earth2-forestfloor"
+              name="earth-pal"
+              value="forestfloor"
+            />
+            <label for="earth2-forestfloor">Forest Floor</label><br />
+
+            <input
+              type="checkbox"
+              id="earth2-compost"
+              name="earth-pal"
+              value="compost"
+            />
+            <label for="earth2-compost">Compost</label><br />
+
+            <input
+              type="checkbox"
+              id="earth2-mushrooms"
+              name="earth-pal"
+              value="mushrooms"
+            />
+            <label for="earth2-mushrooms">Mushrooms</label><br />
+
+            <input
+              type="checkbox"
+              id="earth2-pottingsoil"
+              name="earth-pal"
+              value="pottingsoil"
+            />
+            <label for="earth2-pottingsoil">Potting Soil</label>
+          </div>
+
+          <div class="col palate6">
+            <span class="row">Mineral</span>
+
+            <input
+              type="checkbox"
+              id="mineral2-mineral"
+              name="mineral-pal"
+              value="mineral"
+            />
+            <label for="mineral2-mineral">Mineral</label><br />
+
+            <input
+              type="checkbox"
+              id="mineral2-wetstone"
+              name="mineral-pal"
+              value="wetstone"
+            />
+            <label for="mineral2-wetstone">Wet Stone</label><br />
+
+            <input
+              type="checkbox"
+              id="mineral2-limestone"
+              name="mineral-pal"
+              value="limestone"
+            />
+            <label for="mineral2-limestone">Limestone</label><br />
+
+            <input
+              type="checkbox"
+              id="mineral2-chalk"
+              name="mineral-pal"
+              value="chalk"
+            />
+            <label for="mineral2-chalk">Chalk</label><br />
+
+            <input
+              type="checkbox"
+              id="mineral2-slate"
+              name="mineral-pal"
+              value="slate"
+            />
+            <label for="mineral2-slate">Slate</label><br />
+
+            <input
+              type="checkbox"
+              id="mineral2-flint"
+              name="mineral-pal"
+              value="flint"
+            />
+            <label for="mineral2-flint">Flint</label>
+          </div>
+
+          <div class="col palate7">
+            <span class="row">Wood</span>
+
+            <input
+              type="checkbox"
+              id="wood2-none"
+              name="wood-pal"
+              value="none"
+            />
+            <label for="wood2-none">None</label><br />
+
+            <input type="checkbox" id="wood2-old" name="wood-pal" value="old" />
+            <label for="wood2-old">Old</label><br />
+
+            <input type="checkbox" id="wood2-new" name="wood-pal" value="new" />
+            <label for="wood2-new">New</label><br />
+
+            <input
+              type="checkbox"
+              id="wood2-large"
+              name="wood-pal"
+              value="large"
+            />
+            <label for="wood2-large">Large</label><br />
+
+            <input
+              type="checkbox"
+              id="wood2-small"
+              name="wood-pal"
+              value="small"
+            />
+            <label for="wood2-small">Small</label><br />
+
+            <input
+              type="checkbox"
+              id="wood2-french"
+              name="wood-pal"
+              value="french"
+            />
+            <label for="wood2-french">French</label><br />
+
+            <input
+              type="checkbox"
+              id="wood2-american"
+              name="wood-pal"
+              value="american"
+            />
+            <label for="wood2-american">American</label>
+          </div>
+          <div class="col palate8"></div>
+        </div>
+        <div id="next-button">
+          <button class="btn btn-outline-light">Next</button>
+          <button class="btn btn-outline-light">Previous</button>
+        </div>
+      </div>
+
+      <!-- Palate Row 3 -->
+      <div id="palate-row3" class="collapse">
+        <div class="row palate">
+          <div class="col palate9 white-wine">
+            <span class="row">Phenolic/Bitter</span>
+
+            <input type="radio" id="pheno-yes" name="pheno" value="yes" />
+            <label for="pheno-yes">Yes</label><br />
+
+            <input type="radio" id="pheno-no" name="pheno" value="no" />
+            <label for="pheno-no">No</label>
+          </div>
+
+          <div class="col palate9 red-wine">
+            <span class="row">Tannin</span>
+
+            <input type="radio" id="tannin-low" name="tannin" value="low" />
+            <label for="tannin-low">Low</label><br />
+
+            <input
+              type="radio"
+              id="tannin-medminus"
+              name="tannin"
+              value="medminus"
+            />
+            <label for="tannin-medminus">Med -</label><br />
+
+            <input
+              type="radio"
+              id="tannin-medium"
+              name="tannin"
+              value="medium"
+            />
+            <label for="tannin-medium">Medium</label><br />
+
+            <input
+              type="radio"
+              id="tannin-medplus"
+              name="tannin"
+              value="medplus"
+            />
+            <label for="tannin-medplus">Med +</label><br />
+
+            <input type="radio" id="tannin-high" name="tannin" value="high" />
+            <label for="tannin-high">High</label>
+          </div>
+
+          <div class="col palate10">
+            <span class="row">Acid</span>
+
+            <input type="radio" id="acid-low" name="acid" value="low" />
+            <label for="acid-low">Low</label><br />
+
+            <input
+              type="radio"
+              id="acid-medminus"
+              name="acid"
+              value="medminus"
+            />
+            <label for="acid-medminus">Med -</label><br />
+
+            <input type="radio" id="acid-medium" name="acid" value="medium" />
+            <label for="acid-medium">Medium</label><br />
+
+            <input type="radio" id="acid-medplus" name="acid" value="medplus" />
+            <label for="acid-medplus">Med +</label><br />
+
+            <input type="radio" id="acid-high" name="acid" value="high" />
+            <label for="acid-high">High</label>
+          </div>
+          <div class="col palate11">
+            <span class="row">Alcohol</span>
+
+            <input type="radio" id="alcohol-low" name="alcohol" value="low" />
+            <label for="alcohol-low">Low</label><br />
+
+            <input
+              type="radio"
+              id="alcohol-medminus"
+              name="alcohol"
+              value="medminus"
+            />
+            <label for="alcohol-medminus">Med -</label><br />
+
+            <input
+              type="radio"
+              id="alcohol-medium"
+              name="alcohol"
+              value="medium"
+            />
+            <label for="alcohol-medium">Medium</label><br />
+
+            <input
+              type="radio"
+              id="alcohol-medplus"
+              name="alcohol"
+              value="medplus"
+            />
+            <label for="alcohol-medplus">Med +</label><br />
+
+            <input type="radio" id="alcohol-high" name="alcohol" value="high" />
+            <label for="alcohol-high">High</label>
+          </div>
+          <div class="col palate12">
+            <span class="row">Body</span>
+
+            <input type="radio" id="body-light" name="body" value="light" />
+            <label for="body-light">Light</label><br />
+
+            <input type="radio" id="body-medium" name="body" value="medium" />
+            <label for="body-medium">Medium</label><br />
+
+            <input type="radio" id="body-full" name="body" value="full" />
+            <label for="body-full">Full</label>
+          </div>
+        </div>
+        <div id="next-button">
+          <button class="btn btn-outline-light">Next</button>
+          <button class="btn btn-outline-light">Previous</button>
+        </div>
+      </div>
+
+      <!-- Palate Row 4 -->
+      <div id="palate-row4" class="collapse">
+        <div class="row palate">
+          <div class="col palate13">
+            <span class="row">Texture</span>
+
+            <input
+              type="radio"
+              id="texture-creamy"
+              name="texture"
+              value="creamy"
+            />
+            <label for="texture-creamy">Creamy</label><br />
+
+            <input
+              type="radio"
+              id="texture-round"
+              name="texture"
+              value="round"
+            />
+            <label for="texture-round">Round</label><br />
+
+            <input type="radio" id="texture-lean" name="texture" value="lean" />
+            <label for="texture-lean">Lean</label>
+          </div>
+
+          <div class="col palate14">
+            <span class="row">Balance</span>
+            <h3>Does any element dominate?</h3>
+            <label style="display: none;" for="balance"
+              >Does any element dominate?</label
+            >
+            <input type="text" id="balance-input" name="balance" />
+          </div>
+
+          <div class="col palate15">
+            <span class="row">Length/Finish</span>
+
+            <input type="radio" id="length-short" name="length" value="short" />
+            <label for="length-short">Short</label><br />
+
+            <input
+              type="radio"
+              id="length-medminus"
+              name="length"
+              value="medminus"
+            />
+            <label for="length-medminus">Med -</label><br />
+
+            <input
+              type="radio"
+              id="length-medium"
+              name="length"
+              value="medium"
+            />
+            <label for="length-medium">Medium</label><br />
+
+            <input
+              type="radio"
+              id="length-medplus"
+              name="length"
+              value="medplus"
+            />
+            <label for="length-medplus">Med +</label><br />
+
+            <input type="radio" id="length-long" name="length" value="long" />
+            <label for="length-long">Long</label>
+          </div>
+          <div class="col palate16">
+            <span class="row">Complexity</span>
+
+            <input
+              type="radio"
+              id="complexity-low"
+              name="complexity"
+              value="low"
+            />
+            <label for="complexity-low">Low</label><br />
+
+            <input
+              type="radio"
+              id="complexity-medminus"
+              name="complexity"
+              value="medminus"
+            />
+            <label for="complexity-medminus">Med -</label><br />
+
+            <input
+              type="radio"
+              id="complexity-medium"
+              name="complexity"
+              value="medium"
+            />
+            <label for="complexity-medium">Medium</label><br />
+
+            <input
+              type="radio"
+              id="complexity-medplus"
+              name="complexity"
+              value="medplus"
+            />
+            <label for="complexity-medplus">Med +</label><br />
+
+            <input
+              type="radio"
+              id="complexity-high"
+              name="complexity"
+              value="high"
+            />
+            <label for="complexity-high">High</label>
+          </div>
+        </div>
+        <div id="next-button">
+          <button class="btn btn-outline-light">Next</button>
+          <button class="btn btn-outline-light">Previous</button>
+        </div>
+      </div>
+      <div class="instruction" id="conclusion-inst">
+        <div class="instruction-blurb row">
+          <h2>
+            You just went through the wine tasting grid, a technique used by
+            sommeliers, to collect all the information about the wine: Sight,
+            Smell, and Taste.
+            <br /><br />
+            Look at the summary of the information collected below to make a
+            conclusion what this wine could be!
+          </h2>
+        </div>
+        <div id="next-button">
+          <button id="last-next-button" class="btn btn-outline-light">
+            Next
+          </button>
+          <button class="btn btn-outline-light">Previous</button>
+        </div>
+      </div>
+      <div id="summary" class="row summary">
+        <div class="col">
+          <span>Wine Type</span>
+          <table>
+            <tbody>
+              <tr class="summary-wine-type" style="height: 23px;">
+                <td class="red-wine" style="height: 23px; display: none;">
+                  &nbsp;Red Wine
+                </td>
+                <td class="white-wine" style="height: 23px; display: none;">
+                  &nbsp;White Wine
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="row summary">
+        <div class="col">
+          <span>Sight</span>
+          <table>
+            <tbody>
+              <tr style="height: 23px;">
+                <td style="height: 23px;">&nbsp;Clarity/Visible Sediment</td>
+                <td id="clarity" style="height: 23px;">&nbsp;</td>
+              </tr>
+              <tr style="height: 23px;">
+                <td style="height: 23px;">&nbsp;Concentration</td>
+                <td id="concentration" style="height: 23px;">&nbsp;</td>
+              </tr>
+              <tr style="height: 23px;">
+                <td style="height: 23px;">&nbsp;Color</td>
+                <td id="color" style="height: 23px;">&nbsp;</td>
+              </tr>
+              <tr style="height: 23px;">
+                <td style="height: 23px;">&nbsp;Secondary Colors</td>
+                <td id="color2" style="height: 23px;">&nbsp;</td>
+              </tr>
+              <tr style="height: 23px;">
+                <td style="height: 23px;">&nbsp;Rim Variation</td>
+                <td id="rim" style="height: 23px;">&nbsp;</td>
+              </tr>
+              <tr class="summary-red-wine" style="height: 23px;">
+                <td style="height: 23px;">&nbsp;Extract/Staining</td>
+                <td id="extract" style="height: 23px;">&nbsp;</td>
+              </tr>
+              <tr style="height: 23px;">
+                <td style="height: 23px;">&nbsp;Tearing</td>
+                <td id="tearing" style="height: 23px;">&nbsp;</td>
+              </tr>
+              <tr style="height: 23px;">
+                <td style="height: 23px;">&nbsp;Gas Evidence</td>
+                <td id="gas" style="height: 23px;">&nbsp;</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col">
+          <span>Nose</span>
+          <table>
+            <tbody>
+              <tr style="height: 23px;">
+                <td style="height: 23px;">&nbsp;Intensity</td>
+                <td id="intensity" style="height: 23px;">&nbsp;</td>
+              </tr>
+              <tr style="height: 23px;">
+                <td style="height: 23px;">&nbsp;Age Assessment</td>
+                <td id="age" style="height: 23px;">&nbsp;</td>
+              </tr>
+              <tr style="height: 23px;">
+                <td style="height: 23px;">&nbsp;Fruit</td>
+                <td id="fruit" style="height: 23px;">&nbsp;</td>
+              </tr>
+              <tr style="height: 23px;">
+                <td style="height: 23px;">&nbsp;Fruit Character</td>
+                <td id="fruitchar" style="height: 23px;">&nbsp;</td>
+              </tr>
+              <tr style="height: 23px;">
+                <td style="height: 23px;">&nbsp;Non-Fruit</td>
+                <td id="nonfruit" style="height: 23px;">&nbsp;</td>
+              </tr>
+              <tr style="height: 23px;">
+                <td style="height: 23px;">&nbsp;Earth</td>
+                <td id="earth" style="height: 23px;">&nbsp;</td>
+              </tr>
+              <tr style="height: 23px;">
+                <td style="height: 23px;">&nbsp;Mineral</td>
+                <td id="mineral" style="height: 23px;">&nbsp;</td>
+              </tr>
+              <tr style="height: 23px;">
+                <td style="height: 23px;">&nbsp;Wood</td>
+                <td id="wood" style="height: 23px;">&nbsp;</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div id="palate-summary" class="row summary">
+        <span style="padding-left: 15px;">Palate</span>
+      </div>
+      <div class="row summary">
+        <div class="col">
+          <table>
+            <tbody>
+              <tr style="height: 23px;">
+                <td style="height: 23px;">&nbsp;Sweetness</td>
+                <td id="sweetness" style="height: 23px;">&nbsp;</td>
+              </tr>
+              <tr style="height: 23px;">
+                <td style="height: 23px;">&nbsp;Fruit</td>
+                <td id="fruit-pal" style="height: 23px;">&nbsp;</td>
+              </tr>
+              <tr style="height: 23px;">
+                <td style="height: 23px;">&nbsp;Fruit Character</td>
+                <td id="fruitchar-pal" style="height: 23px;">&nbsp;</td>
+              </tr>
+              <tr style="height: 23px;">
+                <td style="height: 23px;">&nbsp;Non-Fruit</td>
+                <td id="nonfruit-pal" style="height: 23px;">&nbsp;</td>
+              </tr>
+              <tr style="height: 23px;">
+                <td style="height: 23px;">&nbsp;Earth</td>
+                <td id="earth-pal" style="height: 23px;">&nbsp;</td>
+              </tr>
+              <tr style="height: 23px;">
+                <td style="height: 23px;">&nbsp;Mineral</td>
+                <td id="mineral-pal" style="height: 23px;">&nbsp;</td>
+              </tr>
+              <tr style="height: 23px;">
+                <td style="height: 23px;">&nbsp;Wood</td>
+                <td id="wood-pal" style="height: 23px;">&nbsp;</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col">
+          <table>
+            <tbody>
+              <tr class="summary-white-wine" style="height: 23px;">
+                <td style="height: 23px;">
+                  &nbsp;Phenolic/Bitter
+                </td>
+                <td id="pheno" style="height: 23px;">&nbsp;</td>
+              </tr>
+              <tr class="summary-red-wine" style="height: 23px;">
+                <td style="height: 23px;">&nbsp;Tannin</td>
+                <td id="tannin" style="height: 23px;">&nbsp;</td>
+              </tr>
+              <tr style="height: 23px;">
+                <td style="height: 23px;">&nbsp;Acid</td>
+                <td id="acid" style="height: 23px;">&nbsp;</td>
+              </tr>
+              <tr style="height: 23px;">
+                <td style="height: 23px;">&nbsp;Alcohol</td>
+                <td id="alcohol" style="height: 23px;">&nbsp;</td>
+              </tr>
+              <tr style="height: 23px;">
+                <td style="height: 23px;">&nbsp;Body</td>
+                <td id="body" style="height: 23px;">&nbsp;</td>
+              </tr>
+              <tr style="height: 23px;">
+                <td style="height: 23px;">&nbsp;Texture</td>
+                <td id="texture" style="height: 23px;">&nbsp;</td>
+              </tr>
+              <tr style="height: 23px;">
+                <td style="height: 23px;">&nbsp;Balance</td>
+                <td id="balance" style="height: 23px;">&nbsp;</td>
+              </tr>
+              <tr style="height: 23px;">
+                <td style="height: 23px;">&nbsp;Length/Finish</td>
+                <td id="length" style="height: 23px;">&nbsp;</td>
+              </tr>
+              <tr style="height: 23px;">
+                <td style="height: 23px;">&nbsp;Complexity</td>
+                <td id="complexity" style="height: 23px;">&nbsp;</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.4.1.js"
-        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-        crossorigin="anonymous"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.js"
+      integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
     <script src="js/main.js"></script>
-</body>
-
+  </body>
 </html>
